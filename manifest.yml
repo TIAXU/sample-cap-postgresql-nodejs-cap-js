@@ -1,0 +1,25 @@
+---
+applications:
+# -----------------------------------------------------------------------------------
+# Backend Service
+# -----------------------------------------------------------------------------------
+- name: 3-sample-cap-postgresql-nodejs-cap-js-srv
+  random-route: true  # for development only
+  path: gen/srv
+  memory: 256M
+  buildpack: nodejs_buildpack
+  command: cds-serve
+  services: 
+  - devtoberfest-db
+# -----------------------------------------------------------------------------------
+# DB Deployer
+# -----------------------------------------------------------------------------------
+- name: 3-sample-cap-postgresql-nodejs-cap-js-db-deployer
+  path: gen/pg
+  no-route: true
+  no-start: true
+  health-check-type: process
+  memory: 512M
+  disk_quota: 2G
+  services:
+  - devtoberfest-db
