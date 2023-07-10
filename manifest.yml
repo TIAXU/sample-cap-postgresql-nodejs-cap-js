@@ -23,3 +23,6 @@ applications:
   disk_quota: 2G
   services:
   - devtoberfest-db
+resources:
+  - name: devtoberfest-db
+    type: org.cloudfoundry.existing-service

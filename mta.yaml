@@ -1,0 +1,41 @@
+---
+_schema-version: '3.1'
+ID: sample-cap-postgresql-nodejs
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: 3-sample-cap-postgresql-nodejs-cap-js-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires: 
+      - name: devtoberfest-db
+  - name: 3-sample-cap-postgresql-nodejs-cap-js-db-deployer
+    type: nodejs
+    path: gen/pg
+    parameters:
+      no-route: true
+      no-start: true
+      disk-quota: 1GB
+      memory: 256MB
+      tasks:
+      - name: deploy-to-postgresql
+        command: npm start
+        disk-quota: 1GB
+        memory: 256MB
+    build-parameters:
+      ignore: ["node_modules/"]
+    requires:
+      - name: devtoberfest-db
+resources:
+  - name: devtoberfest-db
+    type: org.cloudfoundry.existing-service
