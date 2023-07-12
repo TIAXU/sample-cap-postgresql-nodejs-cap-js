@@ -1,0 +1,10 @@
+### Create entity
+POST http://localhost:4004/odata/v4/catalog/Books
+Content-Type: application/json
+
+{
+    "ID": 3,
+    "title": "ノルウェイの森",
+    "stock": 50
+}
+

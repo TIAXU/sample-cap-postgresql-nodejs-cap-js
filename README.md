@@ -1,25 +1,15 @@
-# Getting Started
+# Deploy with Manifest
+```
+npx cds build
+./pg-build.sh
+```
 
-Welcome to your new project.
+# Deploy with MTA
+```
+mbt build 
+cf deploy mta_archives/sample-cap-postgresql-nodejs-cap-js-postgres_1.0.0.mtar
+```
 
-It contains these folders and files, following our recommended project layout:
+# Notes
+- The `csn.json` file translated from the sample bookshop cannot be compiled correctly. Ticket has been opened.
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
-
-
-## Next Steps
-
-- Open a new terminal and run `cds watch` 
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
-
-
-## Learn More
-
-Learn more at https://cap.cloud.sap/docs/get-started/.

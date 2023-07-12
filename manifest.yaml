@@ -3,7 +3,7 @@ applications:
 # -----------------------------------------------------------------------------------
 # Backend Service
 # -----------------------------------------------------------------------------------
-- name: 3-sample-cap-postgresql-nodejs-cap-js-srv
+- name: 3-sample-cap-postgresql-nodejs-cap-js-postgres-srv
   random-route: true  # for development only
   path: gen/srv
   memory: 256M
@@ -14,7 +14,7 @@ applications:
 # -----------------------------------------------------------------------------------
 # DB Deployer
 # -----------------------------------------------------------------------------------
-- name: 3-sample-cap-postgresql-nodejs-cap-js-db-deployer
+- name: 3-sample-cap-postgresql-nodejs-cap-js-postgres-db-deployer
   path: gen/pg
   no-route: true
   no-start: true

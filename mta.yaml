@@ -1,12 +1,18 @@
 ---
 _schema-version: '3.1'
-ID: sample-cap-postgresql-nodejs
+ID: sample-cap-postgresql-nodejs-cap-js-postgres
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
   enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build
+        - ./pg-build.sh
 modules:
-  - name: 3-sample-cap-postgresql-nodejs-cap-js-srv
+  - name: 3-sample-cap-postgresql-nodejs-cap-js-postgres-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -19,7 +25,7 @@ modules:
           srv-url: ${default-url}
     requires: 
       - name: devtoberfest-db
-  - name: 3-sample-cap-postgresql-nodejs-cap-js-db-deployer
+  - name: 3-sample-cap-postgresql-nodejs-cap-js-postgres-db-deployer
     type: nodejs
     path: gen/pg
     parameters:

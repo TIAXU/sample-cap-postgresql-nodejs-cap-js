@@ -1,5 +1,5 @@
 {
-  "name": "sample-cap-postgresql-nodejs",
+  "name": "sample-cap-postgresql-nodejs-cap-js-postgres",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -8,7 +8,7 @@
   "dependencies": {
     "@cap-js/postgres": "^1.0.1",
     "@sap/cds": "^7",
-    "@sap/cds-dk": "7.0.0",
+    "@sap/cds-dk": "^7",
     "@sap/xssec": "^3.2.17",
     "express": "^4",
     "passport": "^0.6.0"
