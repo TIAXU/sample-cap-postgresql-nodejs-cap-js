@@ -1,0 +1,9 @@
+### Create entity
+POST https://cn40-enablement-enablement-tia-pg-3-sample-cap-postgres5dc1a6ee.enablement.cn40.apps.platform.sapcloud.cn/odata/v4/public/Projects
+Content-Type: application/json
+
+{
+    "name": "cds-pg - PostgreSQL adapter for SAP CDS (CAP)",
+    "repository": "https://github.com/sapmentors/cds-pg",
+    "language": "Node.js"
+}
